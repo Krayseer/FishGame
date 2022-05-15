@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28463A17-D9B7-46B3-A5D1-02C0ED0F01F3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FishGame</RootNamespace>
+    <AssemblyName>FishGame</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\AnimationState.cs" />
+    <Compile Include="Elements\DarkWater.cs" />
+    <Compile Include="Elements\Water.cs" />
+    <Compile Include="Elements\Food.cs" />
+    <Compile Include="Elements\Finish.cs" />
+    <Compile Include="Forms\Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Window.Designer.cs">
+      <DependentUpon>Window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game.cs" />
+    <Compile Include="InitializeForm.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\GameTests.cs" />
+    <Compile Include="Tests\SharkTests.cs" />
+    <Compile Include="Interfaces\IAnim.cs" />
+    <Compile Include="Interfaces\IGameObject.cs" />
+    <Compile Include="Elements\Grass.cs" />
+    <Compile Include="LevelManager.cs" />
+    <Compile Include="Forms\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Levels.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="Elements\Player.cs" />
+    <Compile Include="Animations\PlayerAnimation.cs" />
+    <Compile Include="Tests\PlayerTests.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrollMap.cs" />
+    <Compile Include="Elements\Shark.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Configs\packages.config" />
+    <None Include="Images\b1.bmp" />
+    <None Include="Images\b2.bmp" />
+    <None Include="Images\BackGround.bmp" />
+    <None Include="Images\DarkWater.bmp" />
+    <None Include="Images\f1.bmp" />
+    <None Include="Images\f2.bmp" />
+    <None Include="Images\Finish.bmp" />
+    <None Include="Images\Food.bmp" />
+    <None Include="Images\Grass.bmp" />
+    <None Include="Images\l1.bmp" />
+    <None Include="Images\l2.bmp" />
+    <None Include="Images\r1.bmp" />
+    <None Include="Images\r2.bmp" />
+    <None Include="Images\s.bmp" />
+    <None Include="Images\Shark.bmp" />
+    <None Include="Images\Water.bmp" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configs\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ImageAuthor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ImageControl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ImageTraining.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\BackgroundMenu.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\FishIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.3\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+</Project>
