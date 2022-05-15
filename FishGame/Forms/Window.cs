@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace FishGame
 {
@@ -16,7 +17,7 @@ namespace FishGame
 		private int time;
 		private int horizontalComponent;
 		private int verticalComponent;
-		
+
 		private readonly Dictionary<string, Bitmap> bitmaps = new Dictionary<string, Bitmap>();
 		private readonly HashSet<Keys> keysPressed = new HashSet<Keys>();
 		private readonly Dictionary<Keys, int> keys = new Dictionary<Keys, int>
@@ -40,10 +41,27 @@ namespace FishGame
 				File.WriteAllText("lvl.txt", LevelManager.LevelNumber.ToString());
 			};
 
-			DirectoryInfo imagesDirectory = new DirectoryInfo("C:\\Users\\evgen\\OneDrive\\Рабочий стол" +
-                "\\Fish\\FishGame\\FishGame\\Images");
-			foreach (var image in imagesDirectory.GetFiles("*.bmp"))
-				bitmaps[image.Name] = (Bitmap)Image.FromFile(image.FullName);
+			bitmaps["b1.bmp"] = Properties.Resources.b1;
+			bitmaps["s.bmp"] = Properties.Resources.s;
+			bitmaps["b2.bmp"] = Properties.Resources.b2;
+			bitmaps["r1.bmp"] = Properties.Resources.r1;
+			bitmaps["r2.bmp"] = Properties.Resources.r2;
+			bitmaps["l1.bmp"] = Properties.Resources.l1;
+			bitmaps["l2.bmp"] = Properties.Resources.l2;
+			bitmaps["f1.bmp"] = Properties.Resources.f1;
+			bitmaps["f2.bmp"] = Properties.Resources.f2;
+			bitmaps["Background.bmp"] = Properties.Resources.Background;
+			bitmaps["BackgroundMenu.bmp"] = Properties.Resources.BackgroundMenu;
+			bitmaps["Water.bmp"] = Properties.Resources.Water;
+			bitmaps["DarkWater.bmp"] = Properties.Resources.DarkWater;
+			bitmaps["Finish.bmp"] = Properties.Resources.Finish;
+			bitmaps["Food.bmp"] = Properties.Resources.Food;
+			bitmaps["Grass.bmp"] = Properties.Resources.Grass;
+			bitmaps["Shark.bmp"] = Properties.Resources.Shark;
+
+
+
+
 
 			InitialiseElements();
 			TimerRun();
