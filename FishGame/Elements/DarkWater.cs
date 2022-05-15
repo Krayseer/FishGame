@@ -15,7 +15,7 @@ namespace FishGame
 
 		public void Act() { }
 
-		public string GetImageName() => "DarkWater.bmp";
+		public string GetImageName() => "DarkWater";
 
 		public bool IsBackground() => false;
 

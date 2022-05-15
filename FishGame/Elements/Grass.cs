@@ -10,7 +10,7 @@ namespace FishGame
 
 		public void Act() { }
 
-		public string GetImageName() => "Grass.bmp";
+		public string GetImageName() => "Grass";
 
 		public bool IsBackground() => true;
 

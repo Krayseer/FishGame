@@ -4,7 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.IO;
-using System.Reflection;
+using System.Globalization;
+using System.Collections;
 
 namespace FishGame
 {
@@ -41,27 +42,13 @@ namespace FishGame
 				File.WriteAllText("lvl.txt", LevelManager.LevelNumber.ToString());
 			};
 
-			bitmaps["b1.bmp"] = Properties.Resources.b1;
-			bitmaps["s.bmp"] = Properties.Resources.s;
-			bitmaps["b2.bmp"] = Properties.Resources.b2;
-			bitmaps["r1.bmp"] = Properties.Resources.r1;
-			bitmaps["r2.bmp"] = Properties.Resources.r2;
-			bitmaps["l1.bmp"] = Properties.Resources.l1;
-			bitmaps["l2.bmp"] = Properties.Resources.l2;
-			bitmaps["f1.bmp"] = Properties.Resources.f1;
-			bitmaps["f2.bmp"] = Properties.Resources.f2;
-			bitmaps["Background.bmp"] = Properties.Resources.Background;
-			bitmaps["BackgroundMenu.bmp"] = Properties.Resources.BackgroundMenu;
-			bitmaps["Water.bmp"] = Properties.Resources.Water;
-			bitmaps["DarkWater.bmp"] = Properties.Resources.DarkWater;
-			bitmaps["Finish.bmp"] = Properties.Resources.Finish;
-			bitmaps["Food.bmp"] = Properties.Resources.Food;
-			bitmaps["Grass.bmp"] = Properties.Resources.Grass;
-			bitmaps["Shark.bmp"] = Properties.Resources.Shark;
-
-
-
-
+			var images = Properties.Resources.ResourceManager
+					   .GetResourceSet(CultureInfo.CurrentCulture, true, true)
+					   .Cast<DictionaryEntry>()
+					   .Where(x => x.Value.GetType() == typeof(Bitmap))
+					   .Select(x => new { Name = x.Key.ToString(), Image = x.Value })
+					   .ToList();
+			images.ForEach(x => bitmaps[x.Name] = (Bitmap)x.Image);
 
 			InitialiseElements();
 			TimerRun();
@@ -69,7 +56,7 @@ namespace FishGame
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			e.Graphics.DrawImage(bitmaps["Background.bmp"], new Point(0, 0));
+			e.Graphics.DrawImage(bitmaps["Background"], new Point(0, 0));
 			DrawBackground(e);
 			DrawStaticObjects(e);
 			DrawDynamicObjects(e);

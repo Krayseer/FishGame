@@ -20,11 +20,11 @@ namespace FishGame
 		private static readonly Dictionary<Direction, List<string>> State =
 			new Dictionary<Direction, List<string>>
 			{
-				{ Direction.Stay, new List<string>{ "s.bmp" } }, 
-				{ Direction.Forward, new List<string>{ "f1.bmp", "f2.bmp"} },
-				{ Direction.Back, new List<string>{ "b1.bmp", "b2.bmp" } },
-				{ Direction.Left, new List<string>{ "l1.bmp", "l2.bmp" } },
-				{ Direction.Right, new List<string>{ "r1.bmp", "r2.bmp"} }
+				{ Direction.Stay, new List<string>{ "s" } }, 
+				{ Direction.Forward, new List<string>{ "f1", "f2"} },
+				{ Direction.Back, new List<string>{ "b1", "b2" } },
+				{ Direction.Left, new List<string>{ "l1", "l2" } },
+				{ Direction.Right, new List<string>{ "r1", "r2"} }
 			};
 
 		public static void SetDirection(int horizontal, int vertical)

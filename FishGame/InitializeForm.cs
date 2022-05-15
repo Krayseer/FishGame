@@ -8,9 +8,7 @@ namespace FishGame
 	{
 		public static void InitialiseFormSettings(this Form form)
 		{
-			form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-			form.WindowState = FormWindowState.Maximized;
-			form.ClientSize = new Size(Screen.FromControl(form).WorkingArea.Width, Screen.FromControl(form).WorkingArea.Height);
+			form.Bounds = new Rectangle(0, 0, Screen.FromControl(form).WorkingArea.Width, Screen.FromControl(form).WorkingArea.Height);
 			form.Icon = FishIcon;
 			form.Text = "Приключения рыбки";
 			form.KeyPreview = true;

@@ -33,7 +33,7 @@ namespace FishGame
             }
 		}
 
-		public string GetImageName() => "Shark.bmp";
+		public string GetImageName() => "Shark";
 
 		public bool IsBackground() => true;
 

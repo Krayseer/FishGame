@@ -10,7 +10,7 @@ namespace FishGame
 
 		public void Act() { }
 
-		public string GetImageName() => "Finish.bmp";
+		public string GetImageName() => "Finish";
 
 		public string GetNameBackground() => new Water().GetImageName();
 
