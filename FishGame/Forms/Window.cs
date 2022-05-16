@@ -117,8 +117,12 @@ namespace FishGame
 				Text = "главное меню",
 				ForeColor = Color.Blue
 			};
-			button.SetBounds(1355, 10, 100, 20);
-			button.Click += (x, y) => LevelManager.end = true;
+			button.SetBounds(1100, 35, 250, 50);
+			button.Click += (x, y) =>
+			{
+				LevelManager.end = true;
+				Close();
+			};
 			Controls.Add(button);
 		}
 
