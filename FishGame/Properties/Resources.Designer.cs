@@ -113,6 +113,16 @@ namespace FishGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dead {
+            get {
+                object obj = ResourceManager.GetObject("dead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap f1 {
             get {
                 object obj = ResourceManager.GetObject("f1", resourceCulture);
@@ -186,6 +196,36 @@ namespace FishGame.Properties {
         internal static System.Drawing.Bitmap ImageControl {
             get {
                 object obj = ResourceManager.GetObject("ImageControl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageFinal {
+            get {
+                object obj = ResourceManager.GetObject("ImageFinal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageLevelNext {
+            get {
+                object obj = ResourceManager.GetObject("ImageLevelNext", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageRestart {
+            get {
+                object obj = ResourceManager.GetObject("ImageRestart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

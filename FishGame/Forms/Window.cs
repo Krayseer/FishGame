@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 using System.Collections;
+using static FishGame.Properties.Resources;
 
 namespace FishGame
 {
@@ -15,6 +16,7 @@ namespace FishGame
 		private readonly Timer timer = new Timer();
 		private ProgressBar Energy;
 
+		private bool enableEscape = true;
 		private int time;
 		private int horizontalComponent;
 		private int verticalComponent;
@@ -42,7 +44,7 @@ namespace FishGame
 				File.WriteAllText("lvl.txt", LevelManager.LevelNumber.ToString());
 			};
 
-			var images = Properties.Resources.ResourceManager
+			var images = ResourceManager
 					   .GetResourceSet(CultureInfo.CurrentCulture, true, true)
 					   .Cast<DictionaryEntry>()
 					   .Where(x => x.Value.GetType() == typeof(Bitmap))
@@ -81,59 +83,112 @@ namespace FishGame
 			{
 				time = 0;
 				var player = Game.FindPlayer();
-				if (player.OnStay is Finish || player.death)
+				if (player.OnStay is Finish)
 				{
-					if (player.OnStay is Finish) 
-						LevelManager.NextLevel();
-					Close();
+					player.Delete(0);
+					if (LevelManager.LevelNumber == LevelManager.levels.Count - 1)
+						CreateWindow(ImageFinal, "Победа");
+                    else
+						CreateWindow(ImageLevelNext, "Продолжить");
 				}
+				if (player.death && !player.changeLevel)
+					CreateWindow(ImageRestart, "Заново");
 			}
 			Invalidate();
 		}
 
-		protected override void OnKeyDown(KeyEventArgs e) => keysPressed.Add(e.KeyCode);
+		protected override void OnKeyDown(KeyEventArgs e)
+        {
+			keysPressed.Add(e.KeyCode);
+			if (e.KeyCode == Keys.Escape && enableEscape)
+				SwitchToMenu();
+		}
 
 		protected override void OnKeyUp(KeyEventArgs e) => keysPressed.Remove(e.KeyCode);
 
         private void InitialiseElements()
 		{
-			var textEnergy = new TextBox()
-			{
-				Text = "энергия",
-				BackColor = Color.White,
-				ForeColor = Color.Black,
-				Enabled = false
-			};
-			textEnergy.SetBounds(1100, 10, 50, 20);
-			Controls.Add(textEnergy);
+			var energyBox = new TextBox();
+			SetSettingsText(energyBox, "энергия");
+			energyBox.SetBounds(1100, 10, 70, 20);
+
+			var escBox = new TextBox();
+			SetSettingsText(escBox, "ESC - выход в главное меню");
+			escBox.SetBounds(1110, 37, 250, 20);
 
 			Energy = new ProgressBar();
-			Energy.SetBounds(1150, 10, 200, 20);
+			Energy.SetBounds(1170, 10, 200, 24);
 			Energy.ForeColor = Color.Green;
 			Controls.Add(Energy);
-
-			var button = new Button()
-			{
-				Text = "главное меню",
-				ForeColor = Color.Blue
-			};
-			button.SetBounds(1100, 35, 250, 50);
-			button.Click += (x, y) =>
-			{
-				LevelManager.end = true;
-				Close();
-			};
-			Controls.Add(button);
 		}
 
         private void TimerRun()
 		{
 			timer.Interval = 50;
 			timer.Tick += TimerTick;
-			timer.Start();
+			timer.Start(); 
 		}
 
-		private void GetDirection()
+		private void CreateWindow(Bitmap image, string text)
+        {
+			enableEscape = false;
+
+			var button = new Button();
+			SetSettingsButton(button, text);
+			button.SetBounds(570, 370, 400, 50);
+			button.Visible = text != "Победа";
+			if (text == "Заново")
+				button.Click += (x, y) => Close();
+			else
+				button.Click += (x, y) =>
+				{
+					LevelManager.NextLevel();
+					Close();
+				};
+
+			var menuButton = new Button();
+			SetSettingsButton(menuButton, "Главное меню");
+			menuButton.Click += (x, y) => SwitchToMenu();
+			if (text == "Победа")
+				menuButton.SetBounds(640, 500, 400, 50);
+			else
+				menuButton.SetBounds(570, 450, 400, 50);
+
+			var picture = new PictureBox
+			{
+				Image = image,
+				Location = text == "Победа" ? new Point(320, 100) : new Point(520, 250),
+				Size = text == "Победа" ? new Size(1200, 700) : new Size(500, 350),
+				BackColor = Color.Transparent
+			};
+			Controls.Add(picture);
+		}
+
+		private void SetSettingsButton(Button button, string text)
+		{
+			button.Font = new Font(FontFamily.GenericMonospace, 18, FontStyle.Bold);
+			button.Text = text;
+			button.ForeColor = Color.Blue;
+			Controls.Add(button);
+		}
+
+		private void SetSettingsText(TextBox textBox, string text)
+        {
+			textBox.Text = text;
+			textBox.Font = new Font(FontFamily.GenericMonospace, 11, FontStyle.Bold);
+			textBox.BackColor = Color.White;
+			textBox.ForeColor = Color.Black;
+			textBox.Enabled = false;
+			Controls.Add(textBox);
+		}
+
+		private void SwitchToMenu()
+        {
+			LevelManager.end = true;
+			Close();
+		}
+
+        private void GetDirection()
 		{
 			if (keysPressed.Count() != 0)
 			{

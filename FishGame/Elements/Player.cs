@@ -20,6 +20,8 @@ namespace FishGame
 
 		public bool death = false;
 
+		public bool changeLevel = false;
+
 		public Player(int x, int y)
 		{
 			Position = new Point(x, y);
@@ -52,14 +54,15 @@ namespace FishGame
 			if (Energy > 100) 
 				Energy = 100;
 			else if (Energy < 0) 
-				Death();
+				Delete(1);
 		}
 
 		public string GetImageName() => PlayerAnimation.GetImageName();
 
-		public void Death()
+		public void Delete(int number) // 0 - переход на следующий уровень, 1 - перезапуск уровня
 		{
-			LevelMap[Position.X, Position.Y] = OnStay;
+			LevelMap[Position.X, Position.Y] = number == 0 ? OnStay : new PlayerDead(Position.X, Position.Y);
+			changeLevel = number == 0;
 			death = true;
 			IsAnimation = false;
 		}

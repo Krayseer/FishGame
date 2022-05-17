@@ -10,7 +10,7 @@ namespace FishGame
 		public static int LevelNumber { get; private set; }
 		private static bool changeLevel = false;
 		public static bool end = false;
-		readonly static List<string[]> levels = new List<string[]>
+		public readonly static List<string[]> levels = new List<string[]>
 		{
 			LevelStart, LevelSecond, LevelThird, LevelFourth, LevelFifth, LevelSixth, LevelFinal
 		};

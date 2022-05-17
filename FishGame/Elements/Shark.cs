@@ -61,8 +61,8 @@ namespace FishGame
 				else
 				{
 					var player = (Player)LevelMap[x, nextY];
-					if (player.OnStay is DarkWater) 
-						player.Death();
+					if (player.OnStay is DarkWater)
+						player.Delete(1);
 					Death();
 				}
 			else 

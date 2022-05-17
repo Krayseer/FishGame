@@ -51,8 +51,7 @@ namespace FishGame
 
 		private void SetSettingsButton(Button button, string text)
 		{
-			Font font = new Font(FontFamily.GenericMonospace, 18, FontStyle.Bold);
-			button.Font = font;
+			button.Font = new Font(FontFamily.GenericMonospace, 18, FontStyle.Bold);
 			button.Text = text;
 			button.BackColor = Color.White;
 			button.ForeColor = Color.Blue;
@@ -62,8 +61,8 @@ namespace FishGame
 		private void SetSettingsPicture(PictureBox pictureBox, Image image)
 		{
 			pictureBox.Image = image;
-			pictureBox.Location = new Point(400, 100);
-			pictureBox.Size = new Size(1000, 600);
+			pictureBox.Location = new Point(350, 100);
+			pictureBox.Size = new Size(1200, 700);
 			pictureBox.BackColor = Color.Transparent;
 			pictureBox.Visible = false;
 		}

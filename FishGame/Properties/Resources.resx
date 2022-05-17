@@ -133,6 +133,9 @@
   <data name="DarkWater" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\DarkWater.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\dead.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="f1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\f1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,6 +159,15 @@
   </data>
   <data name="ImageControl" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\ImageControl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImageFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ImageFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImageLevelNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ImageLevelNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImageRestart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ImageRestart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ImageTraining" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\ImageTraining.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

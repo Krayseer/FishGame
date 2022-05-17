@@ -71,6 +71,7 @@
     <Compile Include="Animations\Animation.cs" />
     <Compile Include="Animations\AnimationState.cs" />
     <Compile Include="Elements\DarkWater.cs" />
+    <Compile Include="Elements\PlayerDead.cs" />
     <Compile Include="Elements\Water.cs" />
     <Compile Include="Elements\Food.cs" />
     <Compile Include="Elements\Finish.cs" />
@@ -169,6 +170,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\FishIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dead.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ImageRestart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ImageLevelNext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ImageFinal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
