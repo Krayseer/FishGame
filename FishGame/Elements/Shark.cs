@@ -71,9 +71,9 @@ namespace FishGame
 
 		private void CheckOnFall()
 		{
-			int i = Position.X;
 			for (int j = Position.Y + 1; j < Min(Position.Y + Height, MapHeight); j++)
 			{
+				int i = Position.X;
 				if (LevelMap[i, j] is DarkWater || LevelMap[i, j] is Player)
 				{
 					if (LevelMap[i, j] is Player)

@@ -41,7 +41,7 @@ namespace FishGame
 			Assert.IsTrue(Game.LevelMap[0, 1] is DarkWater);
 			Assert.IsTrue(Game.LevelMap[1, 1] is DarkWater);
 			Assert.IsTrue(Game.LevelMap[0, 2] is DarkWater);
-			Assert.IsTrue(Game.LevelMap[1, 2] is DarkWater);
+			Assert.IsTrue(Game.LevelMap[1, 2] is PlayerDead);
 		}
 
 		[Test]
